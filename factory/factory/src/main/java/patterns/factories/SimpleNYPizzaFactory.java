@@ -1,15 +1,15 @@
-package patterns;
+package patterns.factories;
 
-import patterns.pizzas.CheesePizza;
-import patterns.pizzas.GreekPizza;
-import patterns.pizzas.PepperoniPizza;
 import patterns.pizzas.Pizza;
 import patterns.pizzas.PizzaName;
+import patterns.pizzas.new_york.NYCheesePizza;
+import patterns.pizzas.new_york.NYGreekPizza;
+import patterns.pizzas.new_york.NYPepperoniPizza;
 
 /**
  * SimplePizzaFactory
  */
-public class SimplePizzaFactory {
+public class SimpleNYPizzaFactory implements IPizzaFactory{
 
     public Pizza createPizza(PizzaName name) {
 
@@ -17,13 +17,13 @@ public class SimplePizzaFactory {
         
         switch (name) {
         case CHEESE:
-            orderedPizza = new CheesePizza();
+            orderedPizza = new NYCheesePizza();
             break;
         case GREEK:
-            orderedPizza = new GreekPizza();
+            orderedPizza = new NYGreekPizza();
             break;
         case PEPPERONI:
-            orderedPizza = new PepperoniPizza();
+            orderedPizza = new NYPepperoniPizza();
             break;
         default:
             break;

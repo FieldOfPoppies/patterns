@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import patterns.factories.SimplePizzaFactory;
 import patterns.pizzas.Pizza;
 import patterns.pizzas.PizzaName;
 
@@ -15,32 +16,38 @@ import patterns.pizzas.PizzaName;
 public class PizzaStoreTest 
 {
 
-    private SimplePizzaFactory factory;
+    private PizzaStore pizzaStore;
 
     @Before
     public void beforeEach() {
-        this.factory = new SimplePizzaFactory();
+        pizzaStore = new PizzaStore(){
+        private SimplePizzaFactory factory = new SimplePizzaFactory();
+            @Override
+            Pizza createPizza(PizzaName name) {
+            return factory.createPizza(name);
+            }
+        };
     }
 
     @Test
     public void pizzaIsPrepared() {
-        Pizza createdPizza = new PizzaStore(factory).orderPizza(PizzaName.CHEESE);
+        Pizza createdPizza = pizzaStore.orderPizza(PizzaName.CHEESE);
         assertTrue("Pizza is not prepared", createdPizza.isPrepared());
     }
 
     @Test
     public void pizzaIsBaked() {
-        Pizza createdPizza = new PizzaStore(factory).orderPizza(PizzaName.CHEESE);
+        Pizza createdPizza = pizzaStore.orderPizza(PizzaName.CHEESE);
         assertTrue("Pizza is not baked", createdPizza.isBaked());
     }
     @Test
     public void pizzaIsCut() {
-        Pizza createdPizza = new PizzaStore(factory).orderPizza(PizzaName.CHEESE);
+        Pizza createdPizza = pizzaStore.orderPizza(PizzaName.CHEESE);
         assertTrue("Pizza is not cut", createdPizza.isCut());
     }
     @Test
     public void pizzaIsBoxed() {
-        Pizza createdPizza = new PizzaStore(factory).orderPizza(PizzaName.CHEESE);
+        Pizza createdPizza = pizzaStore.orderPizza(PizzaName.CHEESE);
         assertTrue("Pizza is not boxed", createdPizza.isBoxed());
     }
 

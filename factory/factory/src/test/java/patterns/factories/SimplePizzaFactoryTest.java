@@ -1,9 +1,10 @@
-package patterns;
+package patterns.factories;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import patterns.factories.SimplePizzaFactory;
 import patterns.pizzas.Pizza;
 import patterns.pizzas.PizzaName;
 

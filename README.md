@@ -13,3 +13,8 @@ Just for me to learn and remember. Go away...
 - Tests don't require the PizzaStore to work with a certain Pizza (or all of them)
 - Tests can inject stubs easily to test PizzaStores logic
 - PizzaStore now follows the Open-Closed principle
+
+## Factory Method:
+- separate usage and implementation of the product
+- ensure that same logic is applied to all products (dev doesn't need to remember)
+- logic and product instantiation can still be tested separately
