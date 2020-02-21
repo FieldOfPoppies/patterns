@@ -1,6 +1,5 @@
 package patterns;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -24,7 +23,8 @@ public class ChicagoPizzaStoreTest {
     @Test
     public void ChicagoStylePizzaIsMade() {
         Pizza orderedPizza = pizzaStore.createPizza(PizzaName.CHEESE);
-        assertTrue("No Chicago Style Pizza was made", orderedPizza.getName().equals("ChicagoCheesePizza"));
+        assertTrue("No Chicago Style Pizza was made (" + orderedPizza.getName() + ")",
+                orderedPizza.getName().equals("ChicagoCheesePizza"));
     }
 
 }

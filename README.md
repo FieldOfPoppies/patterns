@@ -18,3 +18,10 @@ Just for me to learn and remember. Go away...
 - separate usage and implementation of the product
 - ensure that same logic is applied to all products (dev doesn't need to remember)
 - logic and product instantiation can still be tested separately
+
+
+## Abstract Factory
+- define creation of families of related or dependent products
+- decouple logic from actual factories (easy replacement of factories)
+- decouple logic applied on objects from their instantiation (same logic applied on all products)
+- 

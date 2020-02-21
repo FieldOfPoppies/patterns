@@ -1,12 +1,21 @@
 package patterns.pizzas;
 
 public abstract class Pizza {
-    private boolean isPrepared = false;
+    protected boolean isPrepared = false;
     private boolean isBaked = false;
     private boolean isCut = false;
     private boolean isBoxed = false;
+    private String name;
 
-    public abstract String getName();
+    public abstract void prepare();
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public boolean isPrepared() {
         return isPrepared;
@@ -22,11 +31,6 @@ public abstract class Pizza {
 
     public boolean isBaked() {
         return isBaked;
-    }
-
-    public void prepare() {
-        isPrepared = true;
-
     }
 
     public void bake() {

@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import patterns.factories.SimpleChicagoPizzaFactory;
 import patterns.pizzas.Pizza;
 import patterns.pizzas.PizzaName;
 
@@ -14,7 +13,7 @@ import patterns.pizzas.PizzaName;
 public class ChicagoPizzaFactoryTest {
 
     @Test
-    public void returnsACheesePizza(){
+    public void returnsACheesePizza() {
         Pizza createdPizza = new SimpleChicagoPizzaFactory().createPizza(PizzaName.CHEESE);
         assertEquals("ChicagoCheesePizza", createdPizza.getName());
     }
