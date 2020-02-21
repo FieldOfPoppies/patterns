@@ -1,0 +1,52 @@
+@startuml
+
+abstract class PizzaStore{
+    orderPizza(): Pizza
+    {abstract}  createPizza(): Pizza
+}
+PizzaStore -up-> Pizza
+
+Interface PizzaIngredientFactory{
+    {abstract} createDough()
+    {abstract} createSauce()
+    {abstract} createCheese()
+    {abstract} createPeperoni()
+    {abstract} createVeggies()
+}
+
+package new_york{
+    class NYPizzaStore extends PizzaStore{
+    createPizza(): Pizza
+    }
+    NYPizzaStore *- SimpleNewYorkPizzaFactory
+    class NYPizzaIngredientFactory implements PizzaIngredientFactory
+    SimpleNewYorkPizzaFactory *- NYPizzaIngredientFactory
+
+    
+    SimpleNewYorkPizzaFactory -down-> pizza
+}
+
+
+
+package pizza{
+    abstract class Pizza{
+        prepare()
+        bake()
+        cut()
+        box()
+    }
+    class CheesePizza
+    class PeperoniPizza
+    class GreekPizza
+}
+CheesePizza -down->PizzaIngredientFactory
+PeperoniPizza -down->PizzaIngredientFactory
+GreekPizza -down->PizzaIngredientFactory
+
+Interface Dough
+Class NYDough implements Dough
+
+PizzaIngredientFactory -right->Dough
+NYPizzaIngredientFactory -> NYDough
+
+@enduml

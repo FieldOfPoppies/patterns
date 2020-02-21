@@ -1,0 +1,50 @@
+@startuml
+
+abstract class PizzaStore{
+    orderPizza(): Pizza
+    {abstract}  createPizza(): Pizza
+}
+PizzaStore -down-> Pizza
+abstract class Pizza{
+    prepare()
+    bake()
+    cut()
+    box()
+}
+
+package new_york{
+    class NYPizzaStore extends PizzaStore{
+    createPizza(): Pizza
+    }
+    NYPizzaStore *- SimpleNewYorkPizzaFactory
+
+    class NYCheesePizza
+    class NYPeperoniPizza
+    class NYGreekPizza
+
+    SimpleNewYorkPizzaFactory -up-> Pizza
+    SimpleNewYorkPizzaFactory -down-> NYCheesePizza
+    SimpleNewYorkPizzaFactory -down-> NYGreekPizza
+    SimpleNewYorkPizzaFactory -down-> NYPeperoniPizza
+}
+
+package chicago{
+    class ChicagoPizzaStore extends PizzaStore{
+        createPizza(): Pizza
+    }
+    SimpleChicagoPizzaFactory -* ChicagoPizzaStore    
+
+    class ChicagoCheesePizza
+    class ChicagoPeperoniPizza
+    class ChicagoGreekPizza
+
+    SimpleChicagoPizzaFactory -up-> Pizza
+    SimpleChicagoPizzaFactory -down-> ChicagoCheesePizza
+    SimpleChicagoPizzaFactory -down-> ChicagoGreekPizza
+    SimpleChicagoPizzaFactory -down-> ChicagoPeperoniPizza
+}
+
+
+
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+
+class PizzaStore
+PizzaStore : orderPizza(): Pizza
+
+abstract class Pizza{
+    prepare()
+    bake()
+    cut()
+    box()
+}
+class CheesePizza extends Pizza
+class PeperoniPizza extends Pizza
+class GreekPizza extends Pizza
+
+PizzaStore -> Pizza
+PizzaStore -> CheesePizza
+PizzaStore -> GreekPizza
+PizzaStore -> PeperoniPizza
+
+
+@enduml
